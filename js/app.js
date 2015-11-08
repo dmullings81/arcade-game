@@ -80,7 +80,7 @@ ThePlayer.prototype.handleInput = function (userInput) {
     };
 
     if  (userInput === 'down') {
-        if (this.y >= 405) {
+        if (this.y >= 400) {
         } else {
         this.y += 83;
         };
@@ -88,17 +88,22 @@ ThePlayer.prototype.handleInput = function (userInput) {
 
 };
 
+//Function to check if the player position overlaps
+//that of each enemy.
+//Use of MDN's Axis-Aligned Bounding Box.
+//Player width is 67px, height is 75px
+//Enemy width is 96px, height is 67px
 var checkCollisions = function() {
-    for (var i=0; i < allEnemies.length; i++) {
-        if (player.x >= (allEnemies[i].x - 40) &&
-            player.x <= (allEnemies[i].x + 40) &&
-            player.y >= (allEnemies[i].y - 40) &&
-            player.y <= (allEnemies[i].y + 40))
+    for (var i = 0; i < allEnemies.length; i++) {
+        if (player.x + 67 > allEnemies[i].x &&
+            player.x < allEnemies[i].x + 96 &&
+            player.y + 75 > allEnemies[i].y &&
+            player.y < allEnemies[i].y + 67)
         {player.x = 200;
-        player.y = 400;
+        player.y = 405;
     };
-        /*{ alert("game over");
-        }*/
+        //{ alert("game over");
+        //}
     };
 };
 
