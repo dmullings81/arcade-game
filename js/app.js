@@ -45,7 +45,7 @@ var ThePlayer = function(x,y) {
 
 
 ThePlayer.prototype.update = function(dt) {
-    // movement (multiplying dt) updating loc x & y
+    // TODO: figure out what this is for
 };
 
 ThePlayer.prototype.render = function() {
@@ -88,6 +88,19 @@ ThePlayer.prototype.handleInput = function (userInput) {
 
 };
 
+var checkCollisions = function() {
+    for (var i=0; i < allEnemies.length; i++) {
+        if (player.x >= (allEnemies[i].x - 40) &&
+            player.x <= (allEnemies[i].x + 40) &&
+            player.y >= (allEnemies[i].y - 40) &&
+            player.y <= (allEnemies[i].y + 40))
+        {player.x = 200;
+        player.y = 400;
+    };
+        /*{ alert("game over");
+        }*/
+    };
+};
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
