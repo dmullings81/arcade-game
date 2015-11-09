@@ -97,7 +97,7 @@ var checkCollisions = function() {
     for (var i = 0; i < allEnemies.length; i++) {
         if (player.x + 67 > allEnemies[i].x &&
             player.x < allEnemies[i].x + 96 &&
-            player.y + 75 > allEnemies[i].y &&
+            player.y + 70 > allEnemies[i].y &&
             player.y < allEnemies[i].y + 67)
         {player.x = 200;
         player.y = 405;
@@ -106,6 +106,19 @@ var checkCollisions = function() {
         //}
     };
 };
+
+//Function to check if player has reached the goal.
+
+var checkGoal = function() {
+    if (player.y < 10) {
+        player.x = 200;
+        player.y = 405;
+        alert("you win");
+    };
+};
+
+
+
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
