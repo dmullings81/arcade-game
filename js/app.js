@@ -143,6 +143,18 @@ var checkGoal = function() {
     };
 };
 
+//function to check number of lives
+var checkGameOver = function() {
+    if (lives < 0) {
+        //reset();
+        sweetAlert("Game over!", "Your score was " + score + "!");
+        score = 0;
+        lives = 3;
+        player.x = 200;
+        player.y = 405;
+    };
+};
+
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
