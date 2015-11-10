@@ -88,6 +88,9 @@ ThePlayer.prototype.handleInput = function (userInput) {
 
 };
 
+//variable tracking number of lives
+var lives = 3;
+
 //Function to check if the player position overlaps
 //that of each enemy.
 //Use of MDN's Axis-Aligned Bounding Box.
@@ -101,11 +104,34 @@ var checkCollisions = function() {
             player.y < allEnemies[i].y + 67)
         {player.x = 200;
         player.y = 405;
+        lives -= 1;
     };
+
         //{ alert("game over");
         //}
     };
 };
+
+//render number of remaining lives on screen
+var renderLives = function() {
+    ctx.font = "30px Arial Black";
+    ctx.fillStyle = "white";
+    ctx.fillText("Lives = " + lives,10,80);
+};
+
+
+
+//variable tracking the number of points
+
+var score = 0;
+
+//render the player score on screen
+var renderScore = function() {
+    ctx.font = "30px Arial Black";
+    ctx.fillStyle = "white";
+    ctx.fillText("Score = " + score,340,80);
+};
+
 
 //Function to check if player has reached the goal.
 
@@ -113,11 +139,9 @@ var checkGoal = function() {
     if (player.y < 10) {
         player.x = 200;
         player.y = 405;
-        alert("you win");
+        score += 1;
     };
 };
-
-
 
 
 // Now instantiate your objects.
