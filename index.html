@@ -3,11 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <title>Effective JavaScript: Frogger</title>
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600,700,200" rel="stylesheet">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
     <script src="https://cdn.rawgit.com/t4t5/sweetalert/master/dist/sweetalert.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/t4t5/sweetalert/master/dist/sweetalert.css">
 </head>
 <body>
+<!-- Title Nav Bar from Bootstrap-->
+  <nav class="navbar navbar-default navbar-static-top">
+    <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+      <div id="navbar-hamburger">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="title-text text-left">
+          <h1 class="text-uppercase">Dimitris Mullings</h1>
+          <h3 class="text-uppercase"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Front-End Web Developer</h3>
+        </div>
+      </div>
+
+          <!-- Nav links  for toggling -->
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right back-to-top text-uppercase">
+          <li><a href="#" class ="title-link" data-toggle="modal" data-target="#about-me-modal">About me</a></li>
+          <li><a href="#portfolio-title">Portfolio</a></li>
+          <li><a href="#socialbottom">Resume</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+<!-- Instructions -->
+
+
+<!-- Game Canvas -->
+
+  <div class="container-fluid">
+
+    <div id="game-canvas" class="col-md-8">
+      Not empty
+    </div>
+    <div class="instructions col-md-4">
+      Instructions
+
+Your goal is to cross the road to the river as many times as possible, while avoiding the pesky bugs.
+
+To move the player, simply use the arrow keys up, down, left and right.
+To score points, enter any of the river tiles at the top of the screen. You get one point each time you make it. You will then be sent back across the road.
+You have 3 lives. Each time you hit a bug you use up one of those lives. If you have no remaining lives left and you hit a bug it will be game over.
+How many points can you score?!
+    </div>
+
+  </div>
+
+
     <script src="js/resources.js"></script>
     <script src="js/app.js"></script>
     <script src="js/engine.js"></script>
