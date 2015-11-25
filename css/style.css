@@ -2,6 +2,14 @@ body {
     text-align: center;
 }
 
+.instructions {
+	padding-top: 50px;
+}
+
+ul {
+	margin-top: 10px;
+	font-size: 18px;
+}
 /* Table of Contents
 1. Global Styles
 2. Nav Bar Header
@@ -13,7 +21,7 @@ body {
 
 /* Global Styles */
 
-p, h1, h2, h3, h4, a {
+p, h1, h2, h3, h4, a, ul {
 	font-family: "Source Sans Pro", sans-serif;
 }
 
@@ -51,6 +59,7 @@ h4 {
 .navbar-default {
 	background-color: #272d2e;
 	border-bottom: solid 2px #DA020E;
+	margin-bottom: -30px;
 }
 
 .navbar-default .navbar-nav > li > a {
