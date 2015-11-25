@@ -88,6 +88,17 @@ ThePlayer.prototype.handleInput = function (userInput) {
 
 };
 
+var Star = function(x,y) {
+    this.sprite = 'images/star.png';
+    this.x = x;
+    this.y = y;
+}
+
+Star.prototype.render = function() {
+    ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+};
+
+
 //variable tracking number of lives
 var lives = 3;
 
@@ -99,7 +110,7 @@ var lives = 3;
 var checkCollisions = function() {
     for (var i = 0; i < allEnemies.length; i++) {
         if (player.x + 67 > allEnemies[i].x &&
-            player.x < allEnemies[i].x + 96 &&
+            player.x < allEnemies[i].x + 76 &&
             player.y + 70 > allEnemies[i].y &&
             player.y < allEnemies[i].y + 67)
         {player.x = 200;
@@ -166,6 +177,8 @@ var allEnemies = [new Enemy(-10,randomY()), new Enemy(-10,randomY()), new Enemy(
 
 // Place the player object in a variable called player
 var player = new ThePlayer(200,405);
+
+var star = new Star(200,145);
 
 
 // This listens for key presses and sends the keys to your
