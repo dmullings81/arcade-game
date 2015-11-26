@@ -123,6 +123,24 @@ var checkCollisions = function() {
     };
 };
 
+
+//Function to check if the player position overlaps
+//that of each gem.
+//Use of MDN's Axis-Aligned Bounding Box.
+//Player width is 67px, height is 75px
+//Enemy width is 96px, height is 67px
+var checkStarCollision = function() {
+    if (player.x + 67 > star.x &&
+            player.x < star.x + 76 &&
+            player.y + 70 > star.y &&
+            player.y < star.y + 67)
+        {
+        score += 2;
+        star.x = randomX();
+        star.y = randomY();
+    };
+};
+
 //render number of remaining lives on screen
 var renderLives = function() {
     ctx.font = "30px Arial Black";
@@ -173,12 +191,16 @@ var randomY = function() {
     var randomise = [60, 145, 230][Math.floor(Math.random() * 3)];
     return randomise;
 };
+var randomX = function() {
+    var randomise = [0, 100, 200, 300, 400][Math.floor(Math.random() * 5)];
+    return randomise;
+};
 var allEnemies = [new Enemy(-10,randomY()), new Enemy(-10,randomY()), new Enemy(-10,randomY())];
 
 // Place the player object in a variable called player
 var player = new ThePlayer(200,405);
 
-var star = new Star(200,145);
+var star = new Star(randomX(),randomY());
 
 
 // This listens for key presses and sends the keys to your
