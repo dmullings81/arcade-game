@@ -1,3 +1,13 @@
+//Audio
+
+
+
+
+
+
+
+
+
 // Enemies our player must avoid
 var Enemy = function(x,y) {
     // Variables applied to each of our instances go here,
@@ -8,7 +18,7 @@ var Enemy = function(x,y) {
     this.sprite = 'images/enemy-bug.png';
     this.x = x;
     this.y = y;
-    this.enemySpeed = Math.floor(Math.random() * 250) + 100;
+    this.enemySpeed = Math.floor(Math.random() * 2700) + 100;
 };
 
 // Update the enemy's position, required method for game
@@ -20,9 +30,12 @@ Enemy.prototype.update = function(dt) {
 
     this.x += (dt * this.enemySpeed);
 
+    //reset position of enemy after reaching edge of screen
+    //also increase speed depending on score.
+    var speedMultiplier = score / 220;
     if (this.x > 503) {
         this.x = -100;
-        this.enemySpeed = Math.floor(Math.random() * 300) + 150;
+        this.enemySpeed = Math.floor(Math.random() * 270) + 100 + speedMultiplier;
         this.y = randomY();
     };
 };
@@ -130,20 +143,20 @@ var checkCollisions = function() {
 //Player width is 67px, height is 75px
 //Enemy width is 96px, height is 67px
 var checkStarCollision = function() {
-    if (player.x + 67 > star.x &&
-            player.x < star.x + 76 &&
+    if (player.x + 50 > star.x &&
+            player.x < star.x + 50 &&
             player.y + 70 > star.y &&
             player.y < star.y + 67)
         {
-        score += 2;
-        star.x = randomX();
+        score += 1000;
+        star.x = randomStarX();
         star.y = randomY();
     };
 };
 
 //render number of remaining lives on screen
 var renderLives = function() {
-    ctx.font = "30px Arial Black";
+    ctx.font = "26px Sigmar One";
     ctx.fillStyle = "white";
     ctx.fillText("Lives = " + lives,10,80);
 };
@@ -156,9 +169,9 @@ var score = 0;
 
 //render the player score on screen
 var renderScore = function() {
-    ctx.font = "30px Arial Black";
+    ctx.font = "26px Sigmar One";
     ctx.fillStyle = "white";
-    ctx.fillText("Score = " + score,340,80);
+    ctx.fillText("Score = " + score,290,80);
 };
 
 
@@ -168,7 +181,7 @@ var checkGoal = function() {
     if (player.y < 10) {
         player.x = 200;
         player.y = 405;
-        score += 1;
+        score += 500;
     };
 };
 
@@ -191,16 +204,22 @@ var randomY = function() {
     var randomise = [60, 145, 230][Math.floor(Math.random() * 3)];
     return randomise;
 };
-var randomX = function() {
-    var randomise = [0, 100, 200, 300, 400][Math.floor(Math.random() * 5)];
+var randomStarX = function() {
+    var randomise = [0, 100, 202, 303, 405][Math.floor(Math.random() * 5)];
     return randomise;
 };
+
+var randomY = function() {
+    var randomise = [70, 155, 240][Math.floor(Math.random() * 3)];
+    return randomise;
+};
+
 var allEnemies = [new Enemy(-10,randomY()), new Enemy(-10,randomY()), new Enemy(-10,randomY())];
 
 // Place the player object in a variable called player
 var player = new ThePlayer(200,405);
 
-var star = new Star(randomX(),randomY());
+var star = new Star(randomStarX(),randomY());
 
 
 // This listens for key presses and sends the keys to your
