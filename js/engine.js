@@ -83,7 +83,7 @@ var Engine = (function(global) {
     function update(dt) {
         updateEntities(dt);
         checkCollisions();
-        checkStarCollision();
+        star.checkStarCollision();
         checkGoal();
         checkGameOver();
     }
@@ -160,8 +160,8 @@ var Engine = (function(global) {
         });
 
 
-        renderScore();
-        renderLives();
+        player.renderScore();
+        player.renderLives();
     }
 
     /* This function does nothing but it could have been a good place to
