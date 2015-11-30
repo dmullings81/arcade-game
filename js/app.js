@@ -1,6 +1,8 @@
 //Super class
-/*var Entity = function() {
-
+/*var Entity = function(this, sprite, x, y) {
+    this.sprite = sprite;
+    this.x = x;
+    this.y = y;
 };
 
 Entity.prototype.render = function() {
@@ -39,7 +41,7 @@ Enemy.prototype.update = function(dt) {
 
     //reset position of enemy after reaching edge of screen
     //also increase speed depending on score.
-    var speedMultiplier = score / 220;
+    var speedMultiplier = player.score / 220;
     if (this.x > 503) {
         this.x = -100;
         this.enemySpeed = Math.floor(Math.random() * 270) + 100 + speedMultiplier;
@@ -66,6 +68,8 @@ var ThePlayer = function(x,y) {
     this.x = x;
     this.y = y;
     this.sprite = 'images/char-boy.png';
+    this.lives = 3;
+    this.score = 0;
 };
 
 
@@ -87,14 +91,14 @@ ThePlayer.prototype.render = function() {
 ThePlayer.prototype.renderScore = function() {
     ctx.font = "26px Sigmar One";
     ctx.fillStyle = "white";
-    ctx.fillText("Score = " + score,290,80);
+    ctx.fillText("Score = " + this.score,290,80);
 };
 
 //render the player's number of remaining lives
 ThePlayer.prototype.renderLives = function() {
     ctx.font = "26px Sigmar One";
     ctx.fillStyle = "white";
-    ctx.fillText("Lives = " + lives,10,80);
+    ctx.fillText("Lives = " + this.lives,10,80);
 };
 
 //Function to check if the player position overlaps
@@ -107,7 +111,7 @@ ThePlayer.prototype.checkCollisions = function() {
             this.y + 70 > allEnemies[i].y &&
             this.y < allEnemies[i].y + 67)
         {this.reset();
-        lives -= 1;
+        this.lives -= 1;
     };
 
         //{ alert("game over");
@@ -120,16 +124,16 @@ ThePlayer.prototype.checkCollisions = function() {
 ThePlayer.prototype.checkGoal = function() {
     if (this.y < 10) {
         this.reset();
-        score += 500;
+        this.score += 500;
     };
 };
 
 //function to check if player ran out of lives
 ThePlayer.prototype.checkGameOver = function() {
-    if (lives < 0) {
-        sweetAlert("Game over!", "Your score was " + score + "!");
-        score = 0;
-        lives = 3;
+    if (this.lives < 0) {
+        sweetAlert("Game over!", "Your score was " + this.score + "!");
+        this.score = 0;
+        this.lives = 3;
         this.reset();
     };
 };
@@ -190,19 +194,19 @@ StarItem.prototype.checkStarCollision = function() {
             player.y + 70 > this.y &&
             player.y < this.y + 67)
         {
-        score += 1000;
+        player.score += 1000;
         this.x = randomStarX();
         this.y = randomStarY();
     };
 };
 
 //variable tracking the player's number of points
-var score = 0;
+
 
 
 
 //variable tracking number of lives
-var lives = 3;
+
 
 //render the player's number of remaining lives
 var renderLives = function() {
