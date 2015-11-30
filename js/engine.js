@@ -82,10 +82,10 @@ var Engine = (function(global) {
      */
     function update(dt) {
         updateEntities(dt);
-        checkCollisions();
+        player.checkCollisions();
         star.checkStarCollision();
-        checkGoal();
-        checkGameOver();
+        player.checkGoal();
+        player.checkGameOver();
     }
 
     /* This is called by the update function  and loops through all of the

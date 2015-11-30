@@ -97,6 +97,43 @@ ThePlayer.prototype.renderLives = function() {
     ctx.fillText("Lives = " + lives,10,80);
 };
 
+//Function to check if the player position overlaps
+//that of each enemy.
+//Collisions using MDN's Axis-Aligned Bounding Box.
+ThePlayer.prototype.checkCollisions = function() {
+    for (var i = 0; i < allEnemies.length; i++) {
+        if (this.x + 67 > allEnemies[i].x &&
+            this.x < allEnemies[i].x + 76 &&
+            this.y + 70 > allEnemies[i].y &&
+            this.y < allEnemies[i].y + 67)
+        {this.reset();
+        lives -= 1;
+    };
+
+        //{ alert("game over");
+        //}
+    };
+};
+
+//Function to check if player has reached the goal.
+
+ThePlayer.prototype.checkGoal = function() {
+    if (this.y < 10) {
+        this.reset();
+        score += 500;
+    };
+};
+
+//function to check if player ran out of lives
+ThePlayer.prototype.checkGameOver = function() {
+    if (lives < 0) {
+        sweetAlert("Game over!", "Your score was " + score + "!");
+        score = 0;
+        lives = 3;
+        this.reset();
+    };
+};
+
 ThePlayer.prototype.handleInput = function (userInput) {
 
     //player inputs up down left right
@@ -143,20 +180,21 @@ StarItem.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-//Function to check if the player position overlaps
-//that of the star.
-StarItem.prototype.checkStarCollision = function() {
-    if (player.x + 50 > star.x &&
-            player.x < star.x + 50 &&
-            player.y + 70 > star.y &&
-            player.y < star.y + 67)
-        {
-        score += 1000;
-        star.x = randomStarX();
-        star.y = randomStarY();
-    };
+StarItem.prototype.update = function() {
+
 };
 
+StarItem.prototype.checkStarCollision = function() {
+    if (player.x + 50 > this.x &&
+            player.x < this.x + 50 &&
+            player.y + 70 > this.y &&
+            player.y < this.y + 67)
+        {
+        score += 1000;
+        this.x = randomStarX();
+        this.y = randomStarY();
+    };
+};
 
 //variable tracking the player's number of points
 var score = 0;
@@ -173,44 +211,12 @@ var renderLives = function() {
     ctx.fillText("Lives = " + lives,10,80);
 };
 
-//Function to check if the player position overlaps
-//that of each enemy.
-//Collisions using MDN's Axis-Aligned Bounding Box.
-var checkCollisions = function() {
-    for (var i = 0; i < allEnemies.length; i++) {
-        if (player.x + 67 > allEnemies[i].x &&
-            player.x < allEnemies[i].x + 76 &&
-            player.y + 70 > allEnemies[i].y &&
-            player.y < allEnemies[i].y + 67)
-        {player.reset();
-        lives -= 1;
-    };
-
-        //{ alert("game over");
-        //}
-    };
-};
 
 
 
-//Function to check if player has reached the goal.
 
-var checkGoal = function() {
-    if (player.y < 10) {
-        player.reset();
-        score += 500;
-    };
-};
 
-//function to check number of lives
-var checkGameOver = function() {
-    if (lives < 0) {
-        sweetAlert("Game over!", "Your score was " + score + "!");
-        score = 0;
-        lives = 3;
-        player.reset();
-    };
-};
+
 
 
 // Now instantiate your objects.
