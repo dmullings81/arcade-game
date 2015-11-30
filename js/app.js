@@ -1,5 +1,5 @@
 //Super class
-/*var Entity = function(this, sprite, x, y) {
+var Entity = function(sprite, x, y) {
     this.sprite = sprite;
     this.x = x;
     this.y = y;
@@ -7,15 +7,7 @@
 
 Entity.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-};*/
-
-
-
-
-
-
-
-
+};
 
 // Enemies our player must avoid
 var Enemy = function(x,y) {
@@ -25,10 +17,14 @@ var Enemy = function(x,y) {
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
-    this.x = x;
-    this.y = y;
+    //this.x = x;
+    //this.y = y;
     this.enemySpeed = Math.floor(Math.random() * 2700) + 100;
+    Entity.call(this, this.sprite, x, y);
 };
+
+Enemy.prototype = Object.create(Entity.prototype);
+Enemy.prototype.constructor = Enemy;
 
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
@@ -50,12 +46,10 @@ Enemy.prototype.update = function(dt) {
 };
 
 // Draw the enemy on the screen, required method for game
-Enemy.prototype.render = function() {
+/*Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-};
+};*/
 
-//Enemy.prototype = Object.create(Entity.prototype);
-Enemy.prototype.constructor = Enemy;
 
 
 
@@ -65,13 +59,16 @@ Enemy.prototype.constructor = Enemy;
 
 var ThePlayer = function(x,y) {
 
-    this.x = x;
-    this.y = y;
+    //this.x = x;
+    //this.y = y;
     this.sprite = 'images/char-boy.png';
     this.lives = 3;
     this.score = 0;
+    Entity.call(this, this.sprite, x, y);
 };
 
+ThePlayer.prototype = Object.create(Entity.prototype);
+ThePlayer.prototype.constructor = ThePlayer;
 
 ThePlayer.prototype.update = function(dt) {
     // TODO: figure out what this is for
@@ -83,9 +80,9 @@ ThePlayer.prototype.reset = function() {
 };
 
 
-ThePlayer.prototype.render = function() {
+/*ThePlayer.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-};
+};*/
 
 //render the player score on screen
 ThePlayer.prototype.renderScore = function() {
@@ -123,6 +120,7 @@ ThePlayer.prototype.checkCollisions = function() {
 
 ThePlayer.prototype.checkGoal = function() {
     if (this.y < 10) {
+        //setTimeout(this.reset, 300);
         this.reset();
         this.score += 500;
     };
@@ -176,13 +174,16 @@ ThePlayer.prototype.handleInput = function (userInput) {
 
 var StarItem = function(x,y) {
     this.sprite = 'images/star.png';
-    this.x = x;
-    this.y = y;
+    //this.x = x;
+    //this.y = y;
+    Entity.call(this, this.sprite, x, y);
 }
+StarItem.prototype = Object.create(Entity.prototype);
+StarItem.prototype.constructor = StarItem;
 
-StarItem.prototype.render = function() {
+/*StarItem.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
-};
+};*/
 
 StarItem.prototype.update = function() {
 
