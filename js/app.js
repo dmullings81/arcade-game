@@ -55,7 +55,7 @@ Enemy.prototype.update = function(dt) {
         this.x = -100;
         this.enemySpeed = Math.floor(Math.random() * 270) + 100 + speedMultiplier;
         this.y = randomY();
-    };
+    }
 };
 
 /**
@@ -136,8 +136,8 @@ ThePlayer.prototype.checkCollisions = function() {
             this.y < allEnemies[i].y + 67) {
                 this.reset();
                 this.lives -= 1;
-            };
-        };
+            }
+        }
 };
 
 /**
@@ -150,7 +150,7 @@ ThePlayer.prototype.checkGoal = function() {
         this.reset();
         this.score += 500;
 // TODO: Add a timeout here
-    };
+    }
 };
 
 /**
@@ -162,7 +162,7 @@ ThePlayer.prototype.checkGameOver = function() {
         this.score = 0;
         this.lives = 3;
         this.reset();
-    };
+    }
 };
 
 /**
@@ -175,31 +175,31 @@ ThePlayer.prototype.handleInput = function (userInput) {
 
         } else {
         this.x -= 101;
-        };
-    };
+        }
+    }
 
     if  (userInput === 'right') {
         if (this.x >= 402) {
 
         } else {
         this.x += 101;
-        };
-    };
+        }
+    }
 
     if  (userInput === 'up') {
         if (this.y <= 0) {
 
         } else {
         this.y -= 83;
-        };
-    };
+        }
+    }
 
     if  (userInput === 'down') {
         if (this.y >= 400) {
         } else {
         this.y += 83;
-        };
-    };
+        }
+    }
 };
 
 /**
@@ -235,7 +235,7 @@ StarItem.prototype.checkStarCollision = function() {
         player.score += 1000;
         this.x = randomStarX();
         this.y = randomStarY();
-    };
+    }
 };
 
 
