@@ -16,7 +16,7 @@ To score points, pick up the stars. Each star is worth 1000 points.
 Also if you enter any of the river tiles at the top of the screen, you get 500 points and you will then be sent back to safety across the road.
 
 ###Difficulty
-The higher your score, the faster the bugs will move. After 10,000 and 30,000 points an extra bug will be add!
+The higher your score, the faster the bugs will move!
 
 ###Lives
 You have 3 lives. Each time you hit a bug you use up one of those lives. If you have no remaining lives left and you hit a bug it will be game over.

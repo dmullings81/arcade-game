@@ -79,18 +79,20 @@ ThePlayer.prototype = Object.create(Entity.prototype);
 //sub class constructor delegation
 ThePlayer.prototype.constructor = ThePlayer;
 
+
+//TODO: Get this feature working correctly
 /**
 * @description Sub class used for new instance of player
 * @param x - Player's x co-ordinate
 * @param y - Player's y co-ordinate
 */
-ThePlayer.prototype.increaseDifficulty = function() {
+/*ThePlayer.prototype.increaseDifficulty = function() {
   if (this.score >= 10000 && allEnemies.length < 4) {
         allEnemies.push(new Enemy(-10,randomY()));
     } else if (this.score >= 30000 && allEnemies.length < 5) {
         allEnemies.push(new Enemy(-10,randomY()));
     };
-};
+};*/
 ThePlayer.prototype.update = function(dt) {
     // TODO: figure out what this is for
 };

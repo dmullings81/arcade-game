@@ -86,7 +86,7 @@ var Engine = (function(global) {
         star.checkStarCollision();
         player.checkGoal();
         player.checkGameOver();
-        player.increaseDifficulty();
+        //player.increaseDifficulty();
     }
 
     /* This is called by the update function  and loops through all of the
