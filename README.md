@@ -6,7 +6,7 @@ In order to play the game, simply head over [this website](https://www.github.co
 ##Instructions
 
 ###Concept
-That's you at the bottom of the screen. Your goal is to cross the road to the river as many times as possible, while avoiding the pesky bugs.
+That's you at the bottom of the screen. Your goal is to cross the road to the river picking up stars as many times as possible, while avoiding the pesky bugs.
 
 ###Controls
 To move the player, simply use the arrow keys _up_, _down_, _left_ and _right_.
@@ -15,9 +15,8 @@ To move the player, simply use the arrow keys _up_, _down_, _left_ and _right_.
 To score points, pick up the stars. Each star is worth 1000 points.
 Also if you enter any of the river tiles at the top of the screen, you get 500 points and you will then be sent back to safety across the road.
 
-
 ###Difficulty
-The higher your score, the faster the bugs will move.
+The higher your score, the faster the bugs will move. After 10,000 and 30,000 points an extra bug will be add!
 
 ###Lives
 You have 3 lives. Each time you hit a bug you use up one of those lives. If you have no remaining lives left and you hit a bug it will be game over.
@@ -27,8 +26,8 @@ You have 3 lives. Each time you hit a bug you use up one of those lives. If you 
 ##Usage
 
 This version of Frogger is written in JavaScript, so if you are having trouble loading the game, make sure JavaScript enabled in the browser's settings.
-It is designed to be controlled using keyboard inputs. Therefore, you'll need a keyboard to control the game. Sorry, no smartphones or tablets!
+It is designed to be controlled using keyboard inputs. Therefore, you'll need a keyboard to control the game. Sorry smartphones and tablets!
 
 ##License
 
-The contents of this repository are covered under the MIT License.
+The contents of this repository are covered under the [MIT License](https://www.github.com).

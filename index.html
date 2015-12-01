@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Frogger clone by Dimitris Mullings</title>
-    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600,700,200" rel="stylesheet">
-    <link href='https://fonts.googleapis.com/css?family=Sigmar+One' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
-    <script src="https://cdn.rawgit.com/t4t5/sweetalert/master/dist/sweetalert.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/t4t5/sweetalert/master/dist/sweetalert.css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE-edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Frogger Clone by DM</title>
+  <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300,600,700,200" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Sigmar+One' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="https://cdn.rawgit.com/t4t5/sweetalert/master/dist/sweetalert.css">
 </head>
 <body>
 <!-- Title Nav Bar from Bootstrap-->
@@ -30,7 +31,7 @@
         </div>
       </div>
 
-          <!-- Nav links  for toggling -->
+      <!-- Nav links  for toggling -->
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right back-to-top text-uppercase">
@@ -41,36 +42,34 @@
     </div>
   </nav>
 
+  <div class="container-fluid text-center">
+    <!-- Game Canvas -->
+    <div id="game-canvas" class="col-md-7"></div>
 
-<!-- Instructions -->
+    <!-- Instructions -->
 
-
-<!-- Game Canvas -->
-
-  <div class="container-fluid">
-
-    <div id="game-canvas" class="col-md-7">
-    </div>
     <div class="instructions col-md-5">
       <h2>FROGGER!</h2>
       <h4>Instructions</h4>
-
-<ul class="text-left"><li>Your goal is to cross the road to the river picking up stars as many times as possible, while avoiding the pesky bugs.</li>
-
-<li>To move the player, simply use the arrow keys up, down, left and right.</li>
-<li>To score points, pick up the stars. Each star is worth 1000 points.</li>
-<li>Also if you enter any of the river tiles at the top of the screen, you get 500 points and you will then be sent back to safety across the road.</li>
-<li>The higher your score, the faster the bugs will move!</li>
-<li>You have 3 lives. Each time you hit a bug you use up one of those lives. If you have no remaining lives left and you hit a bug it will be game over.</li>
-<li>How many points can you score?!</li>
-</ul>
+      <ul class="text-left">
+        <li>Your goal is to cross the road to the river picking up stars as many times as possible,
+        while avoiding the pesky bugs.</li>
+        <li>To move the player, simply use the arrow keys up, down, left and right.</li>
+        <li>To score points, pick up the stars. Each star is worth 1000 points.</li>
+        <li>Also if you enter any of the river tiles at the top of the screen, you get 500 points
+        and you will then be sent back to safety across the road.</li>
+        <li>The higher your score, the faster the bugs will move, and after 10,000 and 30,000 points
+         an extra bug will be added!</li>
+        <li>You have 3 lives. Each time you hit a bug you use up one of those lives. If you have
+        no remaining lives left and you hit a bug it will be game over.</li>
+        <li>How many points can you score?!</li>
+      </ul>
     </div>
 
   </div>
-
-
-    <script src="js/resources.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/engine.js"></script>
+  <script src="js/resources.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/engine.js"></script>
+  <script src="https://cdn.rawgit.com/t4t5/sweetalert/master/dist/sweetalert.min.js"></script>
 </body>
 </html>
