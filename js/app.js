@@ -209,7 +209,7 @@ ThePlayer.prototype.handleInput = function (userInput) {
 */
 var StarItem = function(x,y) {
     //link to sprite used when rendering
-    this.sprite = 'images/star.png';
+    this.sprite = 'images/Star.png';
     //calls the entity super class and binds 'this'
     Entity.call(this, this.sprite, x, y);
 };
