@@ -2,7 +2,7 @@
 
 Welcome to my version of the classic arcade game *Frogger* created as a project in Udacity's Front-End Web Developer Nanodegree. This project demonstrates my Object-Oriented JavaScript and HTML5 Canvas skills.
 
-In order to play the game, simply head over [this website](https://www.github.com).
+In order to play the game, simply head over [this website](http://dmullings81.github.io/arcade-game/index.html).
 ##Instructions
 
 ###Concept
@@ -25,9 +25,9 @@ You have 3 lives. Each time you hit a bug you use up one of those lives. If you 
 
 ##Usage
 
-This version of Frogger is written in JavaScript, so if you are having trouble loading the game, make sure JavaScript enabled in the browser's settings.
+To run the game simply open the file index.html. If you want to download the game, ensure you download index.html and the js, images, css folders. This version of Frogger is written in JavaScript, so if you are having trouble loading the game, make sure JavaScript enabled in the browser's settings.
 It is designed to be controlled using keyboard inputs. Therefore, you'll need a keyboard to control the game. Sorry smartphones and tablets!
 
 ##License
 
-The contents of this repository are covered under the [MIT License](https://www.github.com).
+The contents of this repository are covered under the [MIT License](https://opensource.org/licenses/MIT).

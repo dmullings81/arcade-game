@@ -26,12 +26,12 @@ Entity.prototype.render = function() {
 * @param y - Enemy's y co-ordinate
 */
 var Enemy = function(x,y) {
+    //calls the entity super class and binds 'this'
+    Entity.call(this, this.sprite, x, y);
     //link to sprite used when rendering
     this.sprite = 'images/enemy-bug.png';
     //gives a randomised speed value for each instance of enemy
     this.enemySpeed = Math.floor(Math.random() * 2700) + 100;
-    //calls the entity super class and binds 'this'
-    Entity.call(this, this.sprite, x, y);
 };
 
 //sub class prototype delegation to the Entity super class
@@ -64,14 +64,14 @@ Enemy.prototype.update = function(dt) {
 * @param y - Player's y co-ordinate
 */
 var ThePlayer = function(x,y) {
+    //calls the entity super class and binds 'this'
+    Entity.call(this, this.sprite, x, y);
     //link to sprite used when rendering
     this.sprite = 'images/char-boy.png';
     //variable used to track player lives
     this.lives = 3;
     //variable used to track player score
     this.score = 0;
-    //calls the entity super class and binds 'this'
-    Entity.call(this, this.sprite, x, y);
 };
 
 //sub class prototype delegation to the Entity super class
@@ -101,8 +101,8 @@ ThePlayer.prototype.update = function(dt) {
 * @description Resets the player position back to starting location
 */
 ThePlayer.prototype.reset = function() {
-    player.x = 200;
-    player.y = 405;
+    this.x = 200;
+    this.y = 405;
 };
 
 /**
@@ -171,33 +171,20 @@ ThePlayer.prototype.checkGameOver = function() {
 ThePlayer.prototype.handleInput = function (userInput) {
 
     if  (userInput === 'left') {
-        if (this.x <= -2) {
-
-        } else {
-        this.x -= 101;
+        if (this.x > -2) {
+            this.x -= 101;
         }
-    }
-
-    if  (userInput === 'right') {
-        if (this.x >= 402) {
-
-        } else {
-        this.x += 101;
+    } else if (userInput === 'right') {
+        if (this.x < 402) {
+            this.x += 101;
         }
-    }
-
-    if  (userInput === 'up') {
-        if (this.y <= 0) {
-
-        } else {
-        this.y -= 83;
+    } else if  (userInput === 'up') {
+        if (this.y > 0) {
+            this.y -= 83;
         }
-    }
-
-    if  (userInput === 'down') {
-        if (this.y >= 400) {
-        } else {
-        this.y += 83;
+    } else if  (userInput === 'down') {
+        if (this.y < 400) {
+            this.y += 83;
         }
     }
 };
@@ -208,10 +195,10 @@ ThePlayer.prototype.handleInput = function (userInput) {
 * @param y - y co-ordinate of star
 */
 var StarItem = function(x,y) {
-    //link to sprite used when rendering
-    this.sprite = 'images/Star.png';
     //calls the entity super class and binds 'this'
     Entity.call(this, this.sprite, x, y);
+    //link to sprite used when rendering
+    this.sprite = 'images/Star.png';
 };
 
 //sub class prototype delegation to the Entity super class
@@ -266,6 +253,26 @@ var player = new ThePlayer(200,405);
 // Instantiates a star
 var star = new StarItem(randomStarX(),randomStarY());
 
+//This removes the defaul actions for arrow key presses, preventing
+//the browser from scrolling on smaller windows.
+//Solution from stackoverflow user Zeta.
+
+var keys = {};
+window.addEventListener("keydown",
+    function(e){
+        keys[e.keyCode] = true;
+        switch(e.keyCode){
+            case 37: case 39: case 38:  case 40: // Arrow keys
+            default: break; // do not block other keys
+        }
+    },
+false);
+window.addEventListener('keyup',
+    function(e){
+        keys[e.keyCode] = false;
+    },
+false);
+
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
@@ -279,3 +286,5 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
+
